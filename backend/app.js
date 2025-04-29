@@ -11,7 +11,8 @@ const app = express();
 // CORS configuration with multiple origins
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://the-digital-dinner-eta.vercel.app'
+  'https://the-digital-dinner-eta.vercel.app',
+  'https://the-digital-dinner-cyan.vercel.app'
 ];
 
 app.use(
