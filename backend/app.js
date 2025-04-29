@@ -8,28 +8,13 @@ require('dotenv').config();
 
 const app = express();
 
-// CORS configuration with multiple origins
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://the-digital-dinner-eta.vercel.app',
-  'https://the-digital-dinner-git-main-parameshs-projects-f3e8d252.vercel.app'
-];
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-  })
-);
-
+app.use(cors({
+  origin: 'https://the-digital-dinner-ag3vdlpwb-parameshs-projects-f3e8d252.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 
 app.use(bodyParser.json());
 
