@@ -15,9 +15,9 @@ const Menu = () => {
 
   useEffect(()=>{
     const fetchMenu=async()=>{
+      console.log(`${config.apiUrl}/api/menu`)
       const response=await axios.get(`${config.apiUrl}/api/menu`)
       setMenuItems(response.data)
-      console.log(response.data)
     }
     fetchMenu()
   },[])
