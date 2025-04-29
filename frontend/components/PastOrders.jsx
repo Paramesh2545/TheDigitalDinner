@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { HiPhone, HiRefresh, HiX } from 'react-icons/hi';
+import config from '../src/config';
 
 const PastOrders = () => {
   const [phone, setPhone] = useState('');
@@ -21,8 +22,7 @@ const PastOrders = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.get(`http://localhost:3000/api/order/${phoneNumber}`);
-      // Parse the cart JSON string for each order
+      const response = await axios.get(`${config.apiUrl}/api/order/${phoneNumber}`);
       const processedOrders = response.data.map(order => ({
         ...order,
         cart: typeof order.cart === 'string' ? JSON.parse(order.cart) : order.cart
