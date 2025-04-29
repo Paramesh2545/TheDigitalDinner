@@ -11,26 +11,24 @@ const app = express();
 // CORS configuration with multiple origins
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://the-digital-dinner-eta.vercel.app',
-  'https://the-digital-dinner-cyan.vercel.app'
+  'https://the-digital-dinner-eta.vercel.app'
 ];
 
 app.use(
   cors({
-    origin: function(origin, callback) {
-      if (!origin) return callback(null, true);
-      
-      if (allowedOrigins.indexOf(origin) === -1) {
-        const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-        return callback(new Error(msg), false);
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
       }
-      return callback(null, true);
     },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
   })
 );
+
 
 app.use(bodyParser.json());
 
@@ -49,16 +47,15 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
-// Connect databases
 connectMongoDB();
 
-// For local development
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
 }
+
 
 // Export for Vercel
 module.exports = app;

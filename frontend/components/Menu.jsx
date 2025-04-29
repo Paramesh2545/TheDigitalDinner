@@ -15,8 +15,8 @@ const Menu = () => {
 
   useEffect(()=>{
     const fetchMenu=async()=>{
-      console.log(`${config.apiUrl}/api/menu`)
-      const response=await axios.get(`${config.apiUrl}/api/menu`)
+      console.log(`https://the-digital-dinner-cyan.vercel.app/api/menu`)
+      const response=await axios.get(`https://the-digital-dinner-cyan.vercel.app/api/menu`)
       setMenuItems(response.data)
     }
     fetchMenu()
