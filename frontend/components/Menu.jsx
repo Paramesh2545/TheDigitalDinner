@@ -5,7 +5,7 @@ import { GiNoodles, GiCupcake } from 'react-icons/gi';
 import { BiDrink } from 'react-icons/bi';
 import { useCart } from '../context/CartContext';
 import axios from 'axios';
-
+import config from '../src/config';
 
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState('pizza');
@@ -15,7 +15,7 @@ const Menu = () => {
 
   useEffect(()=>{
     const fetchMenu=async()=>{
-      const response=await axios.get('http://localhost:3000/api/menu')
+      const response=await axios.get(`${config.apiUrl}/api/menu`)
       setMenuItems(response.data)
       console.log(response.data)
     }

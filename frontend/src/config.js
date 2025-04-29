@@ -1,7 +1,5 @@
 const config = {
-  apiUrl: process.env.NODE_ENV === 'production'
-    ? 'https://your-vercel-backend-url.vercel.app'  // Replace with your Vercel backend URL
-    : 'http://localhost:3000'
+  apiUrl: "https://the-digital-dinner-cyan.vercel.app/"
 };
 
 export default config; 

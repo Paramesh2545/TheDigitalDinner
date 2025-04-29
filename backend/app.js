@@ -11,7 +11,7 @@ const app = express();
 // CORS configuration with multiple origins
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://the-digital-dinner.vercel.app', // Add your frontend Vercel URL
+  'https://the-digital-dinner-eta.vercel.app/', // Add your frontend Vercel URL
   process.env.FRONTEND_URL // Optional: Add from environment variable
 ];
 

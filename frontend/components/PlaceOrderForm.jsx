@@ -46,7 +46,7 @@ const PlaceOrderForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/order', {
+      const response = await axios.post(`${config.apiUrl}/api/order`, {
         name: name.trim(),
         phone: phone.trim(),
         items: cartItems,
