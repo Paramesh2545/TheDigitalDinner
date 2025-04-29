@@ -3,11 +3,11 @@ const MenuItem = require('../models/MenuItem');
 const getMenuItems = async (req, res) => {
   try {
     const menu = await MenuItem.find();
-    console.log("recieved hit")
-    // res.json(menu);
+    console.log("Received menu request");
     return res.status(200).json(menu);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch menu' });
+    console.error('Menu fetch error:', error);
+    res.status(500).json({ error: 'Failed to fetch menu', details: error.message });
   }
 };
 
