@@ -10,7 +10,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: 'https://the-digital-dinner-ag3vdlpwb-parameshs-projects-f3e8d252.vercel.app',
+  origin: 'https://the-digital-dinner-ag3vdlpwb-parameshs-projects-f3e8d252.vercel.app, http://localhost:5173',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
