@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 // Health check route
 app.get('/', (req, res) => {
-  res.status(200).json({ status: 'OK', message: 'Server is running' });
+  res.status(200).json({ status: 'OK', message: 'Server is running fine' });
 });
 
 // Routes
