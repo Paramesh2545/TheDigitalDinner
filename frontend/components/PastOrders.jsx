@@ -22,7 +22,7 @@ const PastOrders = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.get(`https://the-digital-dinner-cyan.vercel.app/api/order/${phoneNumber}`);
+      const response = await axios.get(`https://the-digital-dinner-api.vercel.app/api/order/${phoneNumber}`);
       const processedOrders = response.data.map(order => ({
         ...order,
         cart: typeof order.cart === 'string' ? JSON.parse(order.cart) : order.cart

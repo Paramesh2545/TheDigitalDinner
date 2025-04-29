@@ -46,7 +46,7 @@ const PlaceOrderForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post(`https://the-digital-dinner-cyan.vercel.app/api/order`, {
+      const response = await axios.post(`https://the-digital-dinner-api.vercel.app/api/order`, {
         name: name.trim(),
         phone: phone.trim(),
         items: cartItems,
