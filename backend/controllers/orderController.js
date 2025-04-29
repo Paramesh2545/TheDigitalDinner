@@ -5,7 +5,7 @@ const placeOrder = async (req, res) => {
   const cart =req.body.items;
   console.log(req.body);
   if (!name || !phone || !cart) {
-    return res.status(400).json({ error: 'All fields are required' });
+    return res.status(400).json({ error: 'All fields are required ' });
   }
   try {
     const order = await createOrder(name, phone, cart, orderDate);
