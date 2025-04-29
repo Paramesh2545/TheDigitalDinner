@@ -11,13 +11,12 @@ const app = express();
 // CORS configuration with multiple origins
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://the-digital-dinner-eta.vercel.app/'
+  'https://the-digital-dinner-eta.vercel.app'
 ];
 
 app.use(
   cors({
     origin: function(origin, callback) {
-      // Allow requests with no origin (like mobile apps or curl requests)
       if (!origin) return callback(null, true);
       
       if (allowedOrigins.indexOf(origin) === -1) {
