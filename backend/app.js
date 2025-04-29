@@ -10,7 +10,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: true,
+  origin: "https://the-digital-dinner-eta.vercel.app/",
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
